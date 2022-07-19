@@ -1,10 +1,24 @@
-import React from 'react'
+
+import React from 'react';
+
+import {FaPinterestP,FaInstagram,FaYoutube,FaTwitter,FaRss,FaFacebookF} from "react-icons/fa"
+import { IconsContainer } from './Icons.stle';
 
 const Icons = () => {
   return (
-    <div>
-      icons
-    </div>
+    <IconsContainer>
+     <FaInstagram />
+     <FaTwitter />
+     <FaFacebookF />
+     <FaPinterestP />
+     <FaRss />
+     <FaYoutube />
+    </IconsContainer>
+  
+     
+     
+   
+   
   )
 }
 
