@@ -7,7 +7,7 @@ import {
 } from 'firebase/auth'
 import {FaFacebookSquare,FaGithub,FaGoogle} from 'react-icons/fa';
 import { auth } from '../../auth/firebase-config'
-import { Icons, LoginButton, LoginContainer, LoginD, LoginDiv, LoginInput, LoginInputDiv, LogSelectCon, LogSelectDiv, RegisterContainer } from './Login.style'
+import { CheckBox, CheckBoxContainer, CheckBoxDiv, Icons, LoginButton, LoginContainer, LoginD, LoginDiv, LoginInput, LoginInputContainer, LoginInputDiv, LogSelectCon, LogSelectDiv, PlaceHolder, RegisterContainer } from './Login.style'
 
 const Login = () => {
   const [registerEmail, setRegisterEmail] = useState('')
@@ -77,19 +77,31 @@ const Login = () => {
           </Icons>
         </LogSelectDiv>
         <LoginInputDiv>
+          <LoginInputContainer>
 
         <LoginInput type="email" id="email"
-          placeholder="Email ..."
+          
           onChange={event => {
             setLoginEmail(event.target.value)
           }}
-          />
+          /><PlaceHolder>Email</PlaceHolder>
+          </LoginInputContainer>
+          <LoginInputContainer>
+
         <LoginInput type='pasword' className="form-control"
-          placeholder="Password ..."
+         
           onChange={event => {
             setLoginPassword(event.target.value)
           }}
-          />
+          /><PlaceHolder>Password</PlaceHolder>
+          </LoginInputContainer>
+          <CheckBoxDiv>
+          <CheckBoxContainer>
+          <CheckBox id="remember" type='checkbox'/><label htmlFor="remember"></label>
+
+          </CheckBoxContainer>
+          <label htmlFor="remember">Remember me</label>
+          </CheckBoxDiv>
         <LoginButton  onClick={login}>Login</LoginButton>
           </LoginInputDiv>
       </LogSelectCon>
