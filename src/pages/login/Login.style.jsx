@@ -57,6 +57,26 @@ margin:0 10% 0 10%;
 
 }
 `
+export const LoginInput = styled.input`
+width: 90%;
+margin-top: 1.5rem;
+height:2.5rem;
+
+
+`
+export const LoginButton = styled.button`
+width: 90%;
+margin-top: 1.5rem;
+height:2.5rem;
+
+
+`
+
+export const LoginInputDiv = styled.div`
+
+margin-top:3rem;
+
+`
 // .form-control {
 //   display: block;
 //   width: 100%;
