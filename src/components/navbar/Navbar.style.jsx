@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 
 export const Nav = styled.nav`
-border:2px solid red;
+
 padding:1rem;
 
 
@@ -19,6 +19,13 @@ display: flex;
 justify-content:space-between;
 align-items: center;
 `;
+export const SignContainer = styled.div`
+display: flex;
+
+justify-content:space-between;
+align-items: center;
+
+`;
 
 export const SocialIcons = styled.div`
 
@@ -28,11 +35,12 @@ cursor:pointer;
 text-decoration:none;
 
 color:black;
-margin:0 1rem;
-font-size:1.3rem;
+margin:0 .5rem;
+font-size:1rem;
 font-weight:400;
 
 `;
+
 
 
 export const MiddleNav = styled.div`

@@ -22,7 +22,7 @@ const Navbar = () => {
           <MenuLink to='/contact' >CONTACT</MenuLink>
           <MenuLink to='/about' >ABOUT</MenuLink>
         </MiddleNav>
-       <MenuLink to='/login' >LOGIN</MenuLink>
+       <MenuLink to='/login' >Login</MenuLink>
 
     
 
