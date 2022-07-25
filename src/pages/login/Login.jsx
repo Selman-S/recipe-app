@@ -1,13 +1,33 @@
 import React, { useState } from 'react'
+
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  GithubAuthProvider,
+  signInWithPopup 
 } from 'firebase/auth'
-import {FaFacebookSquare,FaGithub,FaGoogle} from 'react-icons/fa';
+import { FaFacebookSquare, FaGithub, FaGoogle } from 'react-icons/fa'
 import { auth } from '../../auth/firebase-config'
-import { CheckBox, CheckBoxContainer, CheckBoxDiv, Icons, LoginButton, LoginContainer, LoginD, LoginDiv, LoginInput, LoginInputContainer, LoginInputDiv, LogSelectCon, LogSelectDiv, PlaceHolder, RegisterContainer } from './Login.style'
+import {
+  CheckBox,
+  CheckBoxContainer,
+  CheckBoxDiv,
+  Icons,
+  Label,
+  LoginButton,
+  LoginContainer,
+  LoginDiv,
+  LoginInput,
+  LoginInputContainer,
+  LoginInputDiv,
+  LogSelectCon,
+  LogSelectDiv,
+  SignUp,
+  SignUpContainer,
+} from './Login.style'
+
 
 const Login = () => {
   const [registerEmail, setRegisterEmail] = useState('')
@@ -46,6 +66,7 @@ const Login = () => {
   const logout = async () => {
     await signOut(auth)
   }
+
   return (
     <LoginContainer>
       {/* <RegisterContainer>
@@ -66,45 +87,51 @@ const Login = () => {
       </RegisterContainer> */}
       <LoginDiv>
         <LogSelectCon>
-
-        <LogSelectDiv>
-          <h3>Login</h3>
-          <p>with</p>
-          <Icons>
-          <FaFacebookSquare/>
-          <FaGithub/>
-          <FaGoogle/>
-          </Icons>
-        </LogSelectDiv>
-        <LoginInputDiv>
-          <LoginInputContainer>
-
-        <LoginInput type="email" id="email"
-          
-          onChange={event => {
-            setLoginEmail(event.target.value)
-          }}
-          /><PlaceHolder>Email</PlaceHolder>
-          </LoginInputContainer>
-          <LoginInputContainer>
-
-        <LoginInput type='pasword' className="form-control"
-         
-          onChange={event => {
-            setLoginPassword(event.target.value)
-          }}
-          /><PlaceHolder>Password</PlaceHolder>
-          </LoginInputContainer>
-          <CheckBoxDiv>
-          <CheckBoxContainer>
-          <CheckBox id="remember" type='checkbox'/><label htmlFor="remember"></label>
-
-          </CheckBoxContainer>
-          <label htmlFor="remember">Remember me</label>
-          </CheckBoxDiv>
-        <LoginButton  onClick={login}>Login</LoginButton>
+          <LogSelectDiv>
+            <h3>Login</h3>
+            <p>with</p>
+            <Icons>
+              <FaFacebookSquare />
+              <FaGithub />
+              <FaGoogle />
+            </Icons>
+          </LogSelectDiv>
+          <LoginInputDiv>
+            <LoginInputContainer>
+              <LoginInput
+                className="input-placeholder"
+                type="email"
+                id="email"
+                placeholder="Email ..."
+                onChange={event => {
+                  setLoginEmail(event.target.value)
+                }}
+              />
+            </LoginInputContainer>
+            <LoginInputContainer>
+              <LoginInput
+                type="pasword"
+                className="form-control"
+                placeholder="Password ..."
+                onChange={event => {
+                  setLoginPassword(event.target.value)
+                }}
+              />
+            </LoginInputContainer>
+            <CheckBoxDiv>
+              <CheckBoxContainer>
+                <CheckBox id="remember" type="checkbox" />
+                <label htmlFor="remember"></label>
+              </CheckBoxContainer>
+              <Label htmlFor="remember">Remember me</Label>
+            </CheckBoxDiv>
+            <LoginButton onClick={login}>Login</LoginButton>
           </LoginInputDiv>
-      </LogSelectCon>
+          <SignUpContainer>
+            <Label>Don't have an account?</Label>
+            <SignUp to='/register'>Sign up</SignUp>
+          </SignUpContainer>
+        </LogSelectCon>
       </LoginDiv>
       {/* <h4>User Logged In:</h4>
       {user?.email}

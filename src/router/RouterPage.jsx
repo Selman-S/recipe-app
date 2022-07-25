@@ -8,6 +8,7 @@ import Contact from '../pages/contact/Contact'
 import Home from '../pages/home/Home'
 import Login from '../pages/login/Login'
 import Recipes from '../pages/recipes/Recipes'
+import Register from '../pages/register/Register'
 
 const RouterPage = () => {
   return (
@@ -24,6 +25,7 @@ const RouterPage = () => {
 
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
       </Routes>
     </BrowserRouter>

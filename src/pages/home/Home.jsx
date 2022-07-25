@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './Home.style';
 
 
@@ -6,6 +7,7 @@ const Home = () => {
   return (
     <div>
       Home
+    
     </div>
   )
 }
