@@ -16,14 +16,12 @@ import {
   Label,
   LoginButton,
   LoginContainer,
-
   LoginDiv,
   LoginInput,
   LoginInputContainer,
   LoginInputDiv,
   LogSelectCon,
   LogSelectDiv,
-
   SignUp,
   SignUpContainer,
 } from './Reagister.style'
@@ -34,8 +32,8 @@ const Register = () => {
   const [registerPassword, setRegisterPassword] = useState('')
   const [loginEmail, setLoginEmail] = useState('')
   const [loginPassword, setLoginPassword] = useState('')
-  const [lastName, setLastName] = useState('');
-  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('')
+  const [firstName, setFirstName] = useState('')
   const [user, setUser] = useState({})
 
   onAuthStateChanged(auth, currentUser => {
@@ -153,7 +151,7 @@ const Register = () => {
           </LoginInputDiv>
           <SignUpContainer>
             <Label>Don't have an account?</Label>
-            <SignUp to='/login'>Login</SignUp>
+            <SignUp to="/login">Login</SignUp>
           </SignUpContainer>
         </LogSelectCon>
       </LoginDiv>

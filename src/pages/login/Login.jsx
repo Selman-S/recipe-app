@@ -6,7 +6,10 @@ import {
   signInWithEmailAndPassword,
   signOut,
   GithubAuthProvider,
-  signInWithPopup 
+  facebookAuthProvider,
+  signInWithPopup,
+  FacebookAuthProvider,
+  getAuth,
 } from 'firebase/auth'
 import { FaFacebookSquare, FaGithub, FaGoogle } from 'react-icons/fa'
 import { auth } from '../../auth/firebase-config'
@@ -27,7 +30,6 @@ import {
   SignUp,
   SignUpContainer,
 } from './Login.style'
-
 
 const Login = () => {
   const [registerEmail, setRegisterEmail] = useState('')
@@ -67,6 +69,38 @@ const Login = () => {
     await signOut(auth)
   }
 
+  const signInFacebook = () => {
+    const authe = getAuth()
+    console.log('asd')
+    const provider = new FacebookAuthProvider()
+    signInWithPopup(authe, provider)
+      .then(result => {
+        // The signed-in user info.
+        const user = result.user
+        console.log(user)
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        const credential = FacebookAuthProvider.credentialFromResult(result)
+        console.log(credential)
+        const accessToken = credential.accessToken
+
+        // ...
+      })
+      .catch(error => {
+        // Handle Errors here.
+        const errorCode = error.code
+        const errorMessage = error.message
+        // The email of the user's account used.
+        const email = error.customData.email
+        // The AuthCredential type that was used.
+        const credential = FacebookAuthProvider.credentialFromError(error)
+        console.log(credential)
+        console.log(error)
+
+        // ...
+      })
+  }
+
+  const signInGithub = () => {}
   return (
     <LoginContainer>
       {/* <RegisterContainer>
@@ -91,8 +125,8 @@ const Login = () => {
             <h3>Login</h3>
             <p>with</p>
             <Icons>
-              <FaFacebookSquare />
-              <FaGithub />
+              <FaFacebookSquare onClick={signInFacebook} />
+              <FaGithub onClick={signInGithub} />
               <FaGoogle />
             </Icons>
           </LogSelectDiv>
@@ -129,7 +163,7 @@ const Login = () => {
           </LoginInputDiv>
           <SignUpContainer>
             <Label>Don't have an account?</Label>
-            <SignUp to='/register'>Sign up</SignUp>
+            <SignUp to="/register">Sign up</SignUp>
           </SignUpContainer>
         </LogSelectCon>
       </LoginDiv>
